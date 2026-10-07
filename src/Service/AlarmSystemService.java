@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AlarmSystemService {
-    List<Sensor> sensors = new ArrayList<>();
-    SystemLog log = new SystemLog();
+    private List<Sensor> sensors = new ArrayList<>();
+    private SystemLog log = new SystemLog();
 
     public AlarmSystemService(){
         addSensor(new DoorSensor(),"Hall Entrance" ,false);

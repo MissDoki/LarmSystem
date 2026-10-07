@@ -2,7 +2,7 @@ package UI;
 import java.util.Scanner;
 
 public class InputScanner implements ScannerInterface {
-    Scanner scanner = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in);
 
     @Override
     public String nextLine(){
