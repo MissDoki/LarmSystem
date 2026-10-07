@@ -94,7 +94,6 @@ public class AlarmSystemService {
         return ResultState.NOT_FOUND;
     }
 
-
     //triggerById
     public void triggerById(String id){
         for(Sensor checkSensor : sensors){
