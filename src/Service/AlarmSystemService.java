@@ -138,11 +138,9 @@ public class AlarmSystemService {
     public boolean resetOneSensor(String id){
         for(Sensor checkSensor : sensors){
             if(id.equalsIgnoreCase(checkSensor.getId())){
-                if(checkSensor.isTriggered()){
-                    log.addLogStatus("Sensor with id " + id + "has been reset.");
-                    checkSensor.setTriggered(false);
-                    return true;
-                }
+                log.addLogStatus("Sensor with id " + id + "has been reset.");
+                checkSensor.reset();
+                return true;
             }
         }
         return false;
@@ -152,10 +150,10 @@ public class AlarmSystemService {
     public void resetAll(){
         for(Sensor checkSensor : sensors){
             if(checkSensor.isTriggered()){
-                log.addLogStatus("All the sensors has been reset.");
-                checkSensor.setTriggered(false);
+                checkSensor.reset();
             }
         }
+        log.addLogStatus("All the sensors has been reset.");
     }
 
     //printStatus
@@ -165,7 +163,7 @@ public class AlarmSystemService {
         }
     }
 
-    //sensorCount //TODO
+    //sensorCount
     public int sensorCount(){
         int count = 0;
         for(Sensor checkSensor : sensors){

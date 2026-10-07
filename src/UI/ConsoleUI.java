@@ -530,7 +530,8 @@ public class ConsoleUI {
                             | ■ AAS Advanced.Alarm.System - Reset Active Sensors                          |
                             ===============================================================================
                             1: Reset Active Sensors
-                            2: « Back
+                            2: Reset specific Sensor
+                            3: « Back
                             
                             Choose which option from the menu and continue
                             ===============================================================================
@@ -546,6 +547,16 @@ public class ConsoleUI {
                             break;
 
                         case 2:
+                            scanner.nextLine();
+                            String resetSensors = scanner.nextLine().trim();
+                            sensors.resetOneSensor(resetSensors);
+                            if(sensors.resetOneSensor(resetSensors)) {
+                                System.out.println("Sensor ID: " + resetSensors + " has been reset.");
+                            }
+                            else {
+                                System.out.println("Error resetting a current sensor.");
+                            }
+                        case 3:
                             break;
                     }
                 case 5:

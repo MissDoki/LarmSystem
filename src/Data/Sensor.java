@@ -30,10 +30,11 @@ public abstract class Sensor {
     }
 
     //reset
-    public void reset(boolean alarm){
-        if(alarm){
+    public void reset(){
+        if(triggered){
             System.out.println("The alarm has been reset");
-            alarm = false;
+            triggered = false;
+            return;
         }
         System.out.println("There is no active alarm at the moment");
     }
