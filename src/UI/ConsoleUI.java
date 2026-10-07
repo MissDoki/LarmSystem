@@ -224,7 +224,7 @@ public class ConsoleUI {
         }
     }
 
-    //alarm simulator: //TODO
+    //alarm simulator:
     void alarmSimulator() {
         clearScreen();
         while (true) {
