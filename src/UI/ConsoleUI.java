@@ -23,7 +23,7 @@ public class ConsoleUI {
                     | ■ AAS Advanced.Alarm.System Main Menu                                       |
                     ===============================================================================
                     1: Add/Remove/Count Sensors
-                    2: Ativate/Deactivate Sensors
+                    2: Ativate/Deactivate Sensors | Turn ON/OFF System
                     3: Simulate System
                     4: Log Status
                     5: Exit Program
@@ -151,7 +151,9 @@ public class ConsoleUI {
                     ===============================================================================
                     1: Activate Sensor
                     2: Deactivate Sensor
-                    3: « Back
+                    3: Turn ON system
+                    4: Turn OFF system
+                    5: « Back
                     
                     Choose which option from the menu and continue
                     ===============================================================================
@@ -219,6 +221,52 @@ public class ConsoleUI {
                     break;
 
                 case 3:
+                    System.out.println("""
+                            | ■ AAS Advanced.Alarm.System - Turn ON System                                |
+                            ===============================================================================
+                            1: Turn ON System
+                            2: « Back
+                            
+                            Choose which option from the menu and continue
+                            ===============================================================================
+                            """);
+                    switch (scanner.nextInt()){
+                        case 1:
+                            sensors.turnOnSystem();
+                            sensors.printStatus();
+                            System.out.println("Attempted to turn ON the system.");
+                            System.out.println(" ");
+                            break;
+
+                        case 2:
+                            break;
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("""
+                            | ■ AAS Advanced.Alarm.System - Turn OFF System                               |
+                            ===============================================================================
+                            1: Turn OFF System
+                            2: « Back
+                            
+                            Choose which option from the menu and continue
+                            ===============================================================================
+                            """);
+                    switch (scanner.nextInt()){
+                        case 1:
+                            sensors.turnOffSystem();
+                            sensors.printStatus();
+                            System.out.println("Attempted to turn OFF the system.");
+                            System.out.println(" ");
+                            break;
+
+                        case 2:
+                            break;
+                    }
+                    break;
+
+                case 5:
                     return;
             }
         }

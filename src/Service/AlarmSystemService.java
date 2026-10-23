@@ -6,6 +6,7 @@ import java.util.List;
 public class AlarmSystemService {
     private List<Sensor> sensors = new ArrayList<>();
     private SystemLog log = new SystemLog();
+    private boolean system = true;
 
     public AlarmSystemService(){
         addSensor(new DoorSensor(),"Hall Entrance" ,true);
@@ -132,6 +133,28 @@ public class AlarmSystemService {
         }
         System.out.println("No sensor with this ID found.");
         return false;
+    }
+
+    //turnOnSystem
+    public void turnOnSystem(){
+        if(!system){
+            for(Sensor checkSensor : sensors) {
+                checkSensor.setArmed(true);
+            }
+            system = true;
+        } else{System.out.println("System is already ON");}
+
+    }
+
+    //turnOffSystem
+    public void turnOffSystem(){
+        if(system){
+            for(Sensor checkSensor : sensors){
+                checkSensor.setArmed(false); // sensor implementation decides if it skips checking if they are armed
+            }
+            system = false;
+        }else{System.out.println("System is already OFF");}
+
     }
 
     //resetOneSensor
