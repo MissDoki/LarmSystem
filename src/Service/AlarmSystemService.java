@@ -101,8 +101,11 @@ public class AlarmSystemService {
             if(id.equalsIgnoreCase(checkSensor.getId())){
                 if(!checkSensor.isTriggered()){
                     checkSensor.trigger();
-                    log.addLogStatus("Sensor with id " + id + " has been triggered.");
-
+                    if(checkSensor.isTriggered()){
+                        log.addLogStatus("Sensor with id " + id + " has been triggered.");
+                    }else{
+                        log.addLogStatus("Sensor with id " + id + " was not triggered.");
+                    }
                     return;
                 }
                 else{
