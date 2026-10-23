@@ -8,12 +8,12 @@ public class AlarmSystemService {
     private SystemLog log = new SystemLog();
 
     public AlarmSystemService(){
-        addSensor(new DoorSensor(),"Hall Entrance" ,false);
-        addSensor(new DoorSensor(),"Hall Window" ,false);
-        addSensor(new MotionSensor(), "Hall", false);
-        addSensor(new MotionSensor(), "Office", false);
+        addSensor(new DoorSensor(),"Hall Entrance" ,true);
+        addSensor(new DoorSensor(),"Hall Window" ,true);
+        addSensor(new MotionSensor(), "Hall", true);
+        addSensor(new MotionSensor(), "Office", true);
         addSensor(new SmokeSensor(), "Storage", true);
-        addSensor(new DoorSensor(), "Storage", false);
+        addSensor(new DoorSensor(), "Storage", true);
 
         //test data made for testing status
 //        triggerById("D0");
