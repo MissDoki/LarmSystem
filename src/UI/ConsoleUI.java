@@ -289,7 +289,6 @@ public class ConsoleUI {
                     ===============================================================================
                     """);
 
-            AlarmSystemService simulation = new AlarmSystemService();
 
             switch (scanner.nextInt()) {
                 case 1:
@@ -309,12 +308,12 @@ public class ConsoleUI {
                             System.out.println("Door sensor simulator to check if the sensor is working.");
                             System.out.println(" ");
 
-                            if(!simulation.isArmed("D0")){
-                                simulation.sensorArm("D0");
+                            if(!sensors.isArmed("D0")){
+                                sensors.sensorArm("D0");
                                 System.out.println("Door Sensor ID D0 has been turned on");
                             }
-                            simulation.triggerById("D0");
-                            if(simulation.isTriggered("D0")){
+                            sensors.triggerById("D0");
+                            if(sensors.isTriggered("D0")){
                                 System.out.println("Test successful on Sensor ID - D0");
                                 System.out.println(" ");
                             }
@@ -344,12 +343,12 @@ public class ConsoleUI {
                         case 1:
                             System.out.println("Motion sensor simulator to check if the sensor is working.");
                             System.out.println(" ");
-                            if(!simulation.isArmed("M0")){
-                                simulation.sensorArm("M0");
+                            if(!sensors.isArmed("M0")){
+                                sensors.sensorArm("M0");
                                 System.out.println("Motion Sensor ID M0 has been turned on");
                             }
-                            simulation.triggerById("M0");
-                            if(simulation.isTriggered("M0")){
+                            sensors.triggerById("M0");
+                            if(sensors.isTriggered("M0")){
                                 System.out.println("Test successful on Sensor ID - M0");
                                 System.out.println(" ");
                             }
@@ -380,12 +379,12 @@ public class ConsoleUI {
                             System.out.println("Smoke sensor simulator to check if the sensor is working.");
                             System.out.println(" ");
 
-                            if(!simulation.isArmed("S0")){
-                                simulation.sensorArm("S0");
+                            if(!sensors.isArmed("S0")){
+                                sensors.sensorArm("S0");
                                 System.out.println("Smoke Sensor ID S0 has been turned on");
                             }
-                            simulation.triggerById("S0");
-                            if(simulation.isTriggered("S0")){
+                            sensors.triggerById("S0");
+                            if(sensors.isTriggered("S0")){
                                 System.out.println("Test successful on Sensor ID - S0");
                                 System.out.println(" ");
                             }
@@ -418,13 +417,13 @@ public class ConsoleUI {
                             System.out.println(" ");
 
                             boolean success = true;
-                            for(Sensor sensor : simulation.getSensors()){
+                            for(Sensor sensor : sensors.getSensors()){
                                 String simulateID = sensor.getId();
-                                if(!simulation.isArmed(simulateID)){
-                                    simulation.sensorArm(simulateID);
+                                if(!sensors.isArmed(simulateID)){
+                                    sensors.sensorArm(simulateID);
                                 }
-                                simulation.triggerById(simulateID);
-                                if(!simulation.isTriggered(simulateID)){
+                                sensors.triggerById(simulateID);
+                                if(!sensors.isTriggered(simulateID)){
                                     success = false;
                                 }
                             }
