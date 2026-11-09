@@ -13,4 +13,8 @@ public class SmokeSensor extends Sensor{
         this.setTriggered(true);
         System.out.println("The sensor is active.");
     }
+    @Override
+    public void setArmed(boolean armed){
+        super.setArmed(true);
+    }
 }

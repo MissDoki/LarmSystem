@@ -15,13 +15,6 @@ public class AlarmSystemService {
         addSensor(new MotionSensor(), "Office", true);
         addSensor(new SmokeSensor(), "Storage", true);
         addSensor(new DoorSensor(), "Storage", true);
-
-        //test data made for testing status
-//        triggerById("D0");
-//        triggerById("M1");
-//        triggerById("S0");
-
-
     }
 
     //loggService
@@ -68,7 +61,8 @@ public class AlarmSystemService {
     //armSensors
     public ResultState sensorArm(String id){
         if(!system){
-            return ResultState.SYSTEM_OFF;
+            if(!id.toLowerCase().startsWith("s"))
+                return ResultState.SYSTEM_OFF;
         }
 
         for(Sensor checkSensor : sensors){
@@ -212,16 +206,4 @@ public class AlarmSystemService {
     public List<Sensor> getSensors(){
         return sensors;
     }
-
-    // Hall: door sensor + motion sensor (door sensor connected with motion sensor)
-    // Office: motion sensor (sensor no connection)
-    // Storage: smoke sensor + door sensor (door sensor connected with garage)
-    // Garage: door sensor (door sensor connected with storage)
-
-    //door and motion sensor only to activate when the system is on
-    //smoke sensor active even if the system is off
-    //when a sensor is triggered, and it is allowed according to previous statements the system will trigger an alarm
-    //possible to reset and turn of during an alarm
-
-    //AlarmSystem: add, arm, disarm, triggerById, printStatus, resetAll
 }
