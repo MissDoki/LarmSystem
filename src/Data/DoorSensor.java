@@ -13,6 +13,5 @@ public class DoorSensor extends Sensor{
         if(isArmed()){
             this.setTriggered(true);
         }
-        else{System.out.println("The Sensor is not active.");}
     }
 }

@@ -183,6 +183,7 @@ public class ConsoleUI {
 
                         case ResultState.NOT_FOUND:
                             System.out.println("Error activating the sensor - sensor not found.");
+                            break;
 
                         case ResultState.SYSTEM_OFF:
                             System.out.println("Error activating the sensor - system if offline.");
@@ -312,7 +313,7 @@ public class ConsoleUI {
                             System.out.println("Door sensor simulator to check if the sensor is working.");
                             System.out.println(" ");
 
-                            if(!sensors.isArmed("D0")){
+                            if(!sensors.isArmed("D0 3")){
                                 sensors.sensorArm("D0");
                                 System.out.println("Door Sensor ID D0 has been turned on");
                             }
@@ -379,6 +380,7 @@ public class ConsoleUI {
                             """);
                     //extra menu
                     switch (scanner.nextInt()) {
+
                         case 1:
                             System.out.println("Smoke sensor simulator to check if the sensor is working.");
                             System.out.println(" ");
@@ -392,6 +394,7 @@ public class ConsoleUI {
                                 System.out.println("Test successful on Sensor ID - S0");
                                 System.out.println(" ");
                             }
+
                             System.out.println("Press enter to continue...");
                             scanner.nextLine();
                             scanner.nextLine();

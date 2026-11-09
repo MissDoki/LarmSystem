@@ -96,7 +96,8 @@ public class AlarmSystemService {
     //triggerById
     public void triggerById(String id){
         if(!system && !id.toUpperCase().startsWith(new SmokeSensor().getPrefix().toUpperCase())){
-            System.out.println("System is off, only able to trigger smoke sensors");
+            System.out.println("Sensor id: " + id + ".\n" +
+                    "System is off, only able to trigger smoke sensors");
             return;
         }
         for(Sensor checkSensor : sensors){
@@ -108,14 +109,13 @@ public class AlarmSystemService {
                     }else{
                         log.addLogStatus("Sensor with id " + id + " was not triggered.");
                     }
-                    return;
                 }
                 else{
-                    System.out.println(checkSensor.getId() + checkSensor.getLocation() + " is already triggered.");
+                    System.out.println(id + " " + checkSensor.getLocation() + " is already triggered.");
                 }
+                return;
             }
         }
-        System.out.println("No sensor with this ID found.");
     }
 
     //isTriggered
@@ -125,7 +125,6 @@ public class AlarmSystemService {
                 return checkSensor.isTriggered();
             }
         }
-        System.out.println("No sensor with this ID found.");
         return false;
     }
 
@@ -136,7 +135,6 @@ public class AlarmSystemService {
                 return checkSensor.isArmed();
             }
         }
-        System.out.println("No sensor with this ID found.");
         return false;
     }
 
