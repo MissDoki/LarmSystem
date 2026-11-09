@@ -67,6 +67,10 @@ public class AlarmSystemService {
 
     //armSensors
     public ResultState sensorArm(String id){
+        if(!system){
+            return ResultState.SYSTEM_OFF;
+        }
+
         for(Sensor checkSensor : sensors){
             if(id.equalsIgnoreCase(checkSensor.getId())){
                 if(!checkSensor.isArmed()){
@@ -97,6 +101,10 @@ public class AlarmSystemService {
 
     //triggerById
     public void triggerById(String id){
+        if(!system && !id.toUpperCase().startsWith(new SmokeSensor().getPrefix().toUpperCase())){
+            System.out.println("System is off, only able to trigger smoke sensors");
+            return;
+        }
         for(Sensor checkSensor : sensors){
             if(id.equalsIgnoreCase(checkSensor.getId())){
                 if(!checkSensor.isTriggered()){

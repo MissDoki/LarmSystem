@@ -183,6 +183,10 @@ public class ConsoleUI {
 
                         case ResultState.NOT_FOUND:
                             System.out.println("Error activating the sensor - sensor not found.");
+
+                        case ResultState.SYSTEM_OFF:
+                            System.out.println("Error activating the sensor - system if offline.");
+
                             break;
                     }
                     System.out.println("Press enter to continue...");

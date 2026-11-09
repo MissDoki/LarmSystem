@@ -3,5 +3,6 @@ package Data;
 public enum ResultState {
     SUCCESS,
     NOT_FOUND,
-    FOUND_BUT_UNABLE
+    FOUND_BUT_UNABLE,
+    SYSTEM_OFF
 }
