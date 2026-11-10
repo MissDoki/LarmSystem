@@ -138,6 +138,15 @@ public class AlarmSystemService {
         return false;
     }
 
+    public boolean isLarming() {
+        for (Sensor sensor : sensors) {
+            if (sensor.isTriggered()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     //turnOnSystem
     public void turnOnSystem(){
         if(!system){

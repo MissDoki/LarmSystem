@@ -19,18 +19,19 @@ public class ConsoleUI {
     public void run() {
         while (true) {
             clearScreen();
-            System.out.println("""
-                    | ■ AAS Advanced.Alarm.System Main Menu                                       |
+            String  larming = sensors.isLarming() ? "True " : "False";
+            System.out.printf("""
+                    | ■ AAS Advanced.Alarm.System Main Menu                     Larming: %s    |
                     ===============================================================================
                     1: Add/Remove/Count Sensors
-                    2: Ativate/Deactivate Sensors | Turn ON/OFF System
+                    2: Activate/Deactivate Sensors | Turn ON/OFF System
                     3: Simulate System
                     4: Log Status
                     5: Exit Program
                     
                     Choose which option from the menu and continue
                     ===============================================================================
-                    """);
+                    """, larming);
             System.out.print("Option: ");
             switch (scanner.nextInt()) {
                 case 1:
