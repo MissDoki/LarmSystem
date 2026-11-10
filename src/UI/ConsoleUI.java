@@ -313,7 +313,7 @@ public class ConsoleUI {
                             System.out.println("Door sensor simulator to check if the sensor is working.");
                             System.out.println(" ");
 
-                            if(!sensors.isArmed("D03")){
+                            if(!sensors.isArmed("D0")){
                                 sensors.sensorArm("D0");
                                 System.out.println("Door Sensor ID D0 has been turned on");
                             }
